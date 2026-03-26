@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Where Would You Be In The US Military Draft?</title>
+<meta property="og:title" content="Where Would You Be In The US Military Draft?">
+<meta property="og:description" content="Find out your estimated draft position, classification, and likely military assignment based on real Selective Service criteria.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --olive: #3d4a2c;
+  --olive-dark: #2a331e;
+  --olive-mid: #354424;
+  --olive-light: #4e5d38;
+  --khaki: #c8b88a;
+  --khaki-light: #ddd2b1;
+  --cream: #f0ead6;
+  --stencil: #1a1f14;
+  --red-accent: #8b2500;
+  --red-hover: #a02d00;
+  --gold: #d4a017;
+  --gold-dim: rgba(212,160,23,0.6);
+  --stamp-red: rgba(139, 37, 0, 0.8);
+  --border-subtle: rgba(200,184,138,0.2);
+  --border-mid: rgba(200,184,138,0.3);
+  --border-strong: rgba(200,184,138,0.5);
+  --input-bg: rgba(0,0,0,0.3);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Source Sans 3', sans-serif;
+  background: var(--olive-dark);
+  color: var(--cream);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.07'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.container {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 16px;
+  position: relative;
+}
+
+/* ── HEADER ── */
+.header {
+  text-align: center;
+  padding: 36px 0 20px;
+  border-bottom: 3px solid var(--khaki);
+  margin-bottom: 28px;
+}
+
+.header-star {
+  font-size: 44px;
+  color: var(--gold);
+  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.header h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.2rem, 7vw, 3.4rem);
+  letter-spacing: 3px;
+  line-height: 1.05;
+  color: var(--cream);
+  text-transform: uppercase;
+  text-shadow: 2px 2px 0 rgba(0,0,0,0.3);
+}
+
+.header .subtitle {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--khaki);
+  margin-top: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* ── AD SLOTS ── */
+.ad-slot {
+  background: rgba(0,0,0,0.2);
+  border: 1px dashed var(--border-mid);
+  padding: 18px;
+  text-align: center;
+  margin: 22px 0;
+  border-radius: 4px;
+  min-height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ad-slot span {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.65rem;
+  color: rgba(200,184,138,0.35);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* ── FORM ── */
+.form-section {
+  background: linear-gradient(155deg, var(--olive), var(--olive-dark));
+  border: 2px solid var(--khaki);
+  border-radius: 2px;
+  padding: 28px 24px 32px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.04);
+}
+
+.form-header {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 3px;
+  color: var(--khaki);
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group.full {
+  grid-column: 1 / -1;
+}
+
+.form-group label {
+  display: block;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 1.5px;
+  color: var(--khaki-light);
+  margin-bottom: 6px;
+}
+
+.form-group label .label-hint {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.55rem;
+  color: rgba(200,184,138,0.5);
+  letter-spacing: 0.5px;
+  text-transform: none;
+  margin-left: 4px;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 12px 14px;
+  background: var(--input-bg);
+  border: 1px solid var(--border-mid);
+  border-radius: 2px;
+  color: var(--cream);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.form-group select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23c8b88a' fill='none' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+  cursor: pointer;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 2px rgba(212,160,23,0.15);
+}
+
+.form-group input::placeholder { color: rgba(200,184,138,0.35); }
+select option { background: var(--olive-dark); color: var(--cream); }
+
+.btn-submit {
+  width: 100%;
+  padding: 16px;
+  background: var(--red-accent);
+  border: 2px solid rgba(255,255,255,0.08);
+  color: var(--cream);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-transform: uppercase;
+  border-radius: 2px;
+  margin-top: 6px;
+}
+
+.btn-submit:hover { background: var(--red-hover); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(139,37,0,0.4); }
+.btn-submit:active { transform: translateY(0); }
+.btn-submit:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+/* ── LOADING ── */
+.loading {
+  text-align: center;
+  padding: 50px 20px;
+  display: none;
+}
+
+.loading-dots {
+  display: inline-flex;
+  gap: 6px;
+}
+
+.loading-dots span {
+  width: 8px; height: 8px;
+  background: var(--gold);
+  border-radius: 50%;
+  animation: pulse 1.2s ease-in-out infinite;
+}
+.loading-dots span:nth-child(2) { animation-delay: 0.2s; }
+.loading-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+.loading-text {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--khaki);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-top: 14px;
+}
+
+/* ── RESULTS ── */
+.result-section {
+  display: none;
+  animation: fadeSlideIn 0.6s ease-out;
+}
+
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Result card — also used for image capture */
+.result-card {
+  background: linear-gradient(160deg, #3a472a, #2a351e);
+  border: 3px solid var(--khaki);
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+  position: relative;
+}
+
+.result-card-header {
+  background: rgba(0,0,0,0.3);
+  padding: 14px 20px;
+  border-bottom: 2px solid var(--khaki);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.result-card-header span {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 2px;
+  color: var(--khaki);
+  text-transform: uppercase;
+}
+
+.result-body {
+  padding: 28px 24px 24px;
+  text-align: center;
+}
+
+.draft-number-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  color: var(--khaki);
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.draft-number {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3.5rem, 14vw, 6.5rem);
+  color: var(--gold);
+  line-height: 1;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  margin: 4px 0;
+}
+
+.draft-total {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.8rem;
+  color: var(--khaki);
+  margin-bottom: 18px;
+}
+
+.classification-badge {
+  display: inline-block;
+  margin: 10px 0 6px;
+  padding: 7px 18px;
+  border: 2px solid var(--gold);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 3px;
+  color: var(--gold);
+}
+
+.result-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-top: 1px solid var(--border-subtle);
+  margin-top: 16px;
+  padding-top: 12px;
+}
+
+.result-cell {
+  padding: 10px 8px;
+  border-bottom: 1px dotted rgba(200,184,138,0.12);
+  text-align: left;
+}
+
+.result-cell:nth-child(odd) { padding-right: 12px; border-right: 1px dotted rgba(200,184,138,0.12); }
+.result-cell:nth-child(even) { padding-left: 12px; }
+
+.result-cell-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 1.5px;
+  color: rgba(200,184,138,0.7);
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.result-cell-value {
+  font-family: 'Source Sans 3', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--cream);
+}
+
+.result-flavour {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.9rem;
+  color: var(--khaki-light);
+  line-height: 1.55;
+  margin-top: 16px;
+  font-style: italic;
+  padding: 0 8px;
+}
+
+.result-url {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.6rem;
+  color: rgba(200,184,138,0.4);
+  letter-spacing: 1px;
+  margin-top: 14px;
+  text-transform: uppercase;
+}
+
+/* Stamp */
+.stamp {
+  position: absolute;
+  top: 45%;
+  right: 16px;
+  transform: translateY(-50%) rotate(-15deg);
+  border: 4px solid var(--stamp-red);
+  color: var(--stamp-red);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 4px;
+  padding: 5px 14px;
+  border-radius: 4px;
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+/* ── SHARE SECTION ── */
+.share-section {
+  text-align: center;
+  margin-top: 22px;
+}
+
+.share-section p {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  color: var(--khaki);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.share-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-share {
+  padding: 11px 18px;
+  border: 1px solid var(--khaki);
+  background: transparent;
+  color: var(--cream);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.95rem;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-share:hover { background: var(--khaki); color: var(--olive-dark); }
+.btn-share svg { width: 16px; height: 16px; fill: currentColor; }
+
+.btn-share.x-share { border-color: #e7e9ea; }
+.btn-share.fb-share { border-color: #4267B2; color: #8bacdf; }
+.btn-share.fb-share:hover { background: #4267B2; color: #fff; }
+.btn-share.ig-share { border-color: #E1306C; color: #E1306C; }
+.btn-share.ig-share:hover { background: #E1306C; color: #fff; }
+.btn-share.save-share { border-color: var(--gold); color: var(--gold); }
+.btn-share.save-share:hover { background: var(--gold); color: var(--olive-dark); }
+.btn-share.copy-share { border-color: var(--border-strong); color: var(--khaki); }
+
+.btn-retry {
+  margin-top: 14px;
+  padding: 10px 28px;
+  background: transparent;
+  border: 1px solid var(--border-mid);
+  color: var(--khaki);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-retry:hover { border-color: var(--khaki); color: var(--cream); }
+
+/* ── DISCLAIMER ── */
+.disclaimer {
+  text-align: center;
+  padding: 28px 16px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.55rem;
+  color: rgba(200,184,138,0.3);
+  letter-spacing: 0.5px;
+  line-height: 1.8;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* ── TOAST ── */
+.toast {
+  position: fixed;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: var(--gold);
+  color: var(--olive-dark);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 10px 22px;
+  border-radius: 4px;
+  z-index: 9999;
+  transition: transform 0.3s ease;
+  white-space: nowrap;
+}
+.toast.show { transform: translateX(-50%) translateY(0); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 520px) {
+  .container { padding: 10px; }
+  .form-section { padding: 20px 16px 24px; }
+  .form-row { grid-template-columns: 1fr; gap: 0; }
+  .result-body { padding: 20px 16px; }
+  .result-grid { grid-template-columns: 1fr; }
+  .result-cell:nth-child(odd) { border-right: none; padding-right: 8px; }
+  .result-cell:nth-child(even) { padding-left: 8px; }
+  .stamp { font-size: 1.1rem; right: 8px; }
+  .share-buttons { gap: 8px; }
+  .btn-share { padding: 10px 14px; font-size: 0.85rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header">
+    <div class="header-star">★</div>
+    <h1>Where Would You Be<br>In The US Military Draft?</h1>
+    <div class="subtitle">Estimated Classification & Queue Position</div>
+  </div>
+
+  <div class="ad-slot"><span>Ad Space — 728×90 Leaderboard</span></div>
+
+  <!-- ── FORM ── -->
+  <div id="formSection" class="form-section">
+    <div class="form-header">Selective Service Classification Form</div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Date of Birth</label>
+        <input type="date" id="dob">
+      </div>
+      <div class="form-group">
+        <label>Gender</label>
+        <select id="gender">
+          <option value="" disabled selected>Select…</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="nonbinary">Non-binary</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Occupation <span class="label-hint">(or 'student', 'unemployed', 'retired')</span></label>
+      <input type="text" id="occupation" placeholder="e.g. Graphic Designer">
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Dependents <span class="label-hint">(children)</span></label>
+        <select id="dependents">
+          <option value="0">None</option>
+          <option value="1">1 child</option>
+          <option value="2">2 children</option>
+          <option value="3">3+ children</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Education Level</label>
+        <select id="education">
+          <option value="" disabled selected>Select…</option>
+          <option value="none">No diploma / GED</option>
+          <option value="highschool">High school diploma</option>
+          <option value="college">Some college</option>
+          <option value="bachelors">Bachelor's degree</option>
+          <option value="masters">Master's degree</option>
+          <option value="doctorate">Doctorate / Professional</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Physical Fitness</label>
+        <select id="fitness">
+          <option value="" disabled selected>Select…</option>
+          <option value="excellent">Could pass a fitness test today</option>
+          <option value="good">Reasonably active</option>
+          <option value="average">Average / desk job shape</option>
+          <option value="below">Below average</option>
+          <option value="poor">Absolutely not</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Prior Military Service</label>
+        <select id="military">
+          <option value="none">None</option>
+          <option value="reserve">Reserve / National Guard</option>
+          <option value="active">Active duty (past)</option>
+          <option value="current">Currently serving</option>
+        </select>
+      </div>
+    </div>
+
+    <button class="btn-submit" onclick="calculateDraft()">Find My Draft Position</button>
+  </div>
+
+  <!-- ── LOADING ── -->
+  <div id="loadingSection" class="loading">
+    <div class="loading-dots"><span></span><span></span><span></span></div>
+    <div class="loading-text" id="loadingText">Consulting the draft board…</div>
+  </div>
+
+  <!-- ── RESULTS ── -->
+  <div id="resultSection" class="result-section">
+    <div class="result-card" id="resultCard">
+      <div class="result-card-header">
+        <span>Draft Classification Card</span>
+        <span id="dateStamp"></span>
+      </div>
+      <div class="result-body">
+        <div class="draft-number-label">Your Estimated Draft Position</div>
+        <div class="draft-number" id="draftNumber"></div>
+        <div class="draft-total" id="draftTotal"></div>
+        <div class="classification-badge" id="classBadge"></div>
+
+        <div class="result-grid">
+          <div class="result-cell">
+            <div class="result-cell-label">Age Priority</div>
+            <div class="result-cell-value" id="resAge"></div>
+          </div>
+          <div class="result-cell">
+            <div class="result-cell-label">Priority Tier</div>
+            <div class="result-cell-value" id="resTier"></div>
+          </div>
+          <div class="result-cell">
+            <div class="result-cell-label">Likely Assignment</div>
+            <div class="result-cell-value" id="resAssignment"></div>
+          </div>
+          <div class="result-cell">
+            <div class="result-cell-label">Odds of Being Called</div>
+            <div class="result-cell-value" id="resOdds"></div>
+          </div>
+          <div class="result-cell">
+            <div class="result-cell-label">Fitness Status</div>
+            <div class="result-cell-value" id="resFitness"></div>
+          </div>
+          <div class="result-cell">
+            <div class="result-cell-label">Dependents Factor</div>
+            <div class="result-cell-value" id="resDependents"></div>
+          </div>
+        </div>
+
+        <p class="result-flavour" id="resFlavour"></p>
+        <div class="result-url">vt.co/draft</div>
+      </div>
+      <div class="stamp" id="stampText">CLASSIFIED</div>
+    </div>
+
+    <div class="ad-slot" style="margin-top:22px;"><span>Ad Space — 300×250 Medium Rectangle</span></div>
+
+    <div class="share-section">
+      <p>Share your draft position</p>
+      <div class="share-buttons">
+        <button class="btn-share x-share" onclick="shareX()">
+          <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          Post
+        </button>
+        <button class="btn-share fb-share" onclick="shareFB()">
+          <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          Share
+        </button>
+        <button class="btn-share ig-share" onclick="shareIG()">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          Story
+        </button>
+        <button class="btn-share save-share" onclick="saveImage()">
+          <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+          Save Image
+        </button>
+        <button class="btn-share copy-share" onclick="copyResult()">Copy</button>
+      </div>
+      <button class="btn-retry" onclick="resetForm()">← Check Another Person</button>
+    </div>
+  </div>
+
+  <div class="disclaimer">
+    For entertainment purposes only. This is a novelty estimator and is not affiliated with, endorsed by, or connected to the United States government, Department of Defense, or Selective Service System. Results are randomly generated estimates based on publicly available information about historical draft criteria and have no real-world accuracy. No personal data is stored or transmitted.
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ── OCCUPATION DATA ── */
+const occupationData = {
+  medical: {
+    keywords: ['doctor','nurse','surgeon','paramedic','dentist','physician','pharmacist','therapist','emt','medical','healthcare','veterinarian','vet tech','midwife','anaesthetist','anesthetist','radiologist','psychiatrist','psychologist','optometrist','chiropractor'],
+    assignment: 'Medical Corps',
+    flavour: 'Your medical expertise would be in extremely high demand. Expect to be fast-tracked into a field hospital or medical support unit — you\'re worth more alive and treating wounds than carrying a rifle.',
+    tierBoost: -2
+  },
+  engineering: {
+    keywords: ['engineer','mechanic','electrician','plumber','welder','architect','technician','machinist','construction','carpenter','builder','hvac','civil engineer','structural','aerospace'],
+    assignment: 'Corps of Engineers',
+    flavour: 'Your technical skills make you prime material for the engineering corps. Bridges, fortifications, infrastructure — you\'d be building the backbone of any military operation.',
+    tierBoost: -1
+  },
+  tech: {
+    keywords: ['programmer','developer','software','data scientist','data analyst','cyber','it ','hacker','analyst','computer','coder','devops','sysadmin','network','security','ai ','machine learning','web dev','ux ','ui '],
+    assignment: 'Cyber Command',
+    flavour: 'Forget the frontlines — your keyboard is your weapon. Modern warfare relies on cyber operations, and specialists like you would be fighting battles most people never see.',
+    tierBoost: -1
+  },
+  comms: {
+    keywords: ['journalist','writer','editor','reporter','marketing','pr ','public relations','communications','social media','content','copywriter','filmmaker','videographer','photographer','media','influencer','blogger'],
+    assignment: 'Psychological Operations',
+    flavour: 'Your ability to craft narratives and influence audiences makes you ideal for information warfare and strategic communications. Propaganda posters need designers too.',
+    tierBoost: 0
+  },
+  logistics: {
+    keywords: ['driver','trucker','pilot','logistics','supply chain','warehouse','shipping','transport','delivery','forklift','dispatcher','freight','aviation','sailor','captain'],
+    assignment: 'Transportation Corps',
+    flavour: 'Wars are won by logistics, not just firepower. Your experience keeping things moving would place you at the heart of the military supply chain.',
+    tierBoost: -1
+  },
+  cooking: {
+    keywords: ['chef','cook','baker','caterer','food','kitchen','barista','restaurant','hospitality'],
+    assignment: 'Quartermaster Corps',
+    flavour: 'An army marches on its stomach, and you\'d be the one keeping it fed. Expect industrial-scale meal prep and absolutely zero Michelin stars.',
+    tierBoost: 0
+  },
+  fitness: {
+    keywords: ['athlete','trainer','coach','fitness','gym','sports','military','soldier','marine','police','firefighter','security guard','bouncer','boxing','martial','personal trainer'],
+    assignment: 'Infantry — Front Line',
+    flavour: 'Your physical fitness and training background put you right where the action is. The drill sergeant would love you — and that\'s not necessarily a good thing.',
+    tierBoost: -2
+  },
+  education: {
+    keywords: ['teacher','professor','lecturer','tutor','instructor','educator','academic','researcher','scientist','librarian'],
+    assignment: 'Training & Doctrine Command',
+    flavour: 'Your ability to educate and train others would be redirected toward turning civilians into soldiers. You\'d go from lesson plans to battle plans.',
+    tierBoost: 0
+  },
+  legal: {
+    keywords: ['lawyer','attorney','solicitor','barrister','judge','paralegal','legal','law clerk','advocate'],
+    assignment: 'Judge Advocate General',
+    flavour: 'Someone needs to handle the paperwork of war. Your legal expertise slots you neatly into military justice — court martials, rules of engagement, and mountains of forms.',
+    tierBoost: 1
+  },
+  finance: {
+    keywords: ['accountant','banker','finance','trader','economist','auditor','tax','investment','actuary','broker','analyst'],
+    assignment: 'Finance Corps',
+    flavour: 'Even the military runs on budgets. You\'d be deployed to make sure the numbers add up while everything else falls apart around you.',
+    tierBoost: 1
+  },
+  trades: {
+    keywords: ['plumber','roofer','bricklayer','plasterer','painter','decorator','locksmith','glazier','tiler','scaffolder','labourer','laborer','handyman','maintenance'],
+    assignment: 'Facilities Engineering',
+    flavour: 'Bases don\'t build themselves. Your hands-on trade skills would keep military infrastructure running — arguably the most critical and least glamorous job there is.',
+    tierBoost: -1
+  },
+  student: {
+    keywords: ['student','undergraduate','postgrad','phd','studying','university','college student'],
+    assignment: 'To Be Determined (Post-Training)',
+    flavour: 'Historically, students received temporary deferments — but in a full-scale draft, that grace period could be very short. Enjoy the library while you can.',
+    tierBoost: 1
+  },
+  unemployed: {
+    keywords: ['unemployed','jobless','between jobs','looking for work','not working','stay at home','homemaker','carer'],
+    assignment: 'General Service Pool',
+    flavour: 'No occupational deferment to fall back on. You\'d enter the general pool and be assigned wherever the military sees fit based on aptitude testing.',
+    tierBoost: -1
+  },
+  default: {
+    assignment: 'General Service',
+    flavour: 'You\'d enter the general pool and be assigned based on aptitude testing. Could be anything from supply runs to communications support — the military decides, not you.',
+    tierBoost: 0
+  }
+};
+
+const stampTexts = ['CLASSIFIED', 'PROCESSED', 'REGISTERED', 'ON FILE', 'APPROVED', 'DRAFT READY'];
+const loadingMessages = [
+  'Consulting the draft board…',
+  'Running lottery simulation…',
+  'Checking deferment eligibility…',
+  'Assigning classification code…'
+];
+
+/* ── HELPERS ── */
+function getAge(dobStr) {
+  const dob = new Date(dobStr);
+  const today = new Date();
+  let age = today.getFullYear() - dob.getFullYear();
+  const m = today.getMonth() - dob.getMonth();
+  if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) age--;
+  return age;
+}
+
+function getOccupationMatch(occ) {
+  const lower = occ.toLowerCase();
+  for (const [key, data] of Object.entries(occupationData)) {
+    if (key === 'default') continue;
+    if (data.keywords.some(kw => lower.includes(kw))) return data;
+  }
+  return occupationData.default;
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2200);
+}
+
+/* ── CALCULATE ── */
+function calculateDraft() {
+  const dob = document.getElementById('dob').value;
+  const gender = document.getElementById('gender').value;
+  const occupation = document.getElementById('occupation').value.trim();
+  const dependents = parseInt(document.getElementById('dependents').value);
+  const education = document.getElementById('education').value;
+  const fitness = document.getElementById('fitness').value;
+  const military = document.getElementById('military').value;
+
+  if (!dob || !gender || !occupation || !education || !fitness) {
+    alert('Please fill in all fields to get your draft position.');
+    return;
+  }
+
+  const age = getAge(dob);
+  if (age < 16 || age > 90) {
+    alert('Please enter a valid date of birth.');
+    return;
+  }
+
+  // Show loading with rotating messages
+  document.getElementById('formSection').style.display = 'none';
+  document.getElementById('loadingSection').style.display = 'block';
+  let msgIdx = 0;
+  const loadingEl = document.getElementById('loadingText');
+  const msgInterval = setInterval(() => {
+    msgIdx = (msgIdx + 1) % loadingMessages.length;
+    loadingEl.textContent = loadingMessages[msgIdx];
+  }, 600);
+
+  setTimeout(() => {
+    clearInterval(msgInterval);
+    generateResult(age, dob, gender, occupation, dependents, education, fitness, military);
+  }, 2000 + Math.random() * 800);
+}
+
+function generateResult(age, dob, gender, occupation, dependents, education, fitness, military) {
+  const occData = getOccupationMatch(occupation);
+  const totalPool = 13200000 + Math.floor(Math.random() * 1800000);
+
+  // ── Age tier (matches real SSS priority order) ──
+  let ageTier;
+  let ageLabel;
+  if (age === 20) { ageTier = 1; ageLabel = '20 — Called First'; }
+  else if (age === 21) { ageTier = 1; ageLabel = '21 — Second Priority'; }
+  else if (age >= 22 && age <= 25) { ageTier = 2; ageLabel = age + ' — Priority Group'; }
+  else if (age >= 18 && age <= 19) { ageTier = 2; ageLabel = age + ' — Called After 20-25'; }
+  else if (age >= 26 && age <= 30) { ageTier = 3; ageLabel = age + ' — Extended Pool'; }
+  else if (age >= 31 && age <= 40) { ageTier = 4; ageLabel = age + ' — Reserve Pool'; }
+  else { ageTier = 5; ageLabel = age + ' — Outside Draft Age'; }
+
+  // ── Gender factor (currently only males must register) ──
+  let genderShift = gender === 'male' ? 0 : 2;
+
+  // ── Dependents (hardship deferment) ──
+  let depShift = 0;
+  let depLabel = 'No impact';
+  if (dependents >= 3) { depShift = 2; depLabel = 'Hardship deferment likely'; }
+  else if (dependents === 2) { depShift = 1; depLabel = 'Deferment possible'; }
+  else if (dependents === 1) { depShift = 1; depLabel = 'Reduced priority'; }
+
+  // ── Fitness ──
+  let fitShift = 0;
+  let fitLabel = '';
+  if (fitness === 'excellent') { fitShift = -1; fitLabel = 'Fit for duty'; }
+  else if (fitness === 'good') { fitShift = 0; fitLabel = 'Fit for duty'; }
+  else if (fitness === 'average') { fitShift = 0; fitLabel = 'Conditional pass'; }
+  else if (fitness === 'below') { fitShift = 1; fitLabel = 'Medical review required'; }
+  else if (fitness === 'poor') { fitShift = 2; fitLabel = 'Likely disqualified'; }
+
+  // ── Education (no diploma = disqualifying factor) ──
+  let eduShift = 0;
+  if (education === 'none') eduShift = 1;
+  if (education === 'doctorate' || education === 'masters') eduShift = 0; // skilled, but no deferment
+
+  // ── Military service ──
+  let milShift = 0;
+  if (military === 'current') { milShift = 5; } // already serving
+  else if (military === 'active') { milShift = 1; }
+  else if (military === 'reserve') { milShift = -1; } // more likely to be called
+
+  // ── Effective tier ──
+  let effectiveTier = Math.max(1, Math.min(5, ageTier + genderShift + (occData.tierBoost || 0) + depShift + fitShift + eduShift + milShift));
+
+  // ── Draft number ──
+  const tierRanges = {
+    1: [1, Math.floor(totalPool * 0.07)],
+    2: [Math.floor(totalPool * 0.07), Math.floor(totalPool * 0.22)],
+    3: [Math.floor(totalPool * 0.22), Math.floor(totalPool * 0.48)],
+    4: [Math.floor(totalPool * 0.48), Math.floor(totalPool * 0.75)],
+    5: [Math.floor(totalPool * 0.75), totalPool]
+  };
+  const range = tierRanges[effectiveTier];
+  const draftNumber = range[0] + Math.floor(Math.random() * (range[1] - range[0]));
+
+  // ── Labels ──
+  const tierLabels = { 1: 'Tier 1 — First Call', 2: 'Tier 2 — High Priority', 3: 'Tier 3 — Standard Pool', 4: 'Tier 4 — Reserve Pool', 5: 'Tier 5 — Low Priority' };
+  const oddsMap = { 1: 'Very High (85%+)', 2: 'High (55–75%)', 3: 'Moderate (30–50%)', 4: 'Low (10–25%)', 5: 'Very Low (<10%)' };
+  const classMap = {
+    1: '1-A — Available for Service',
+    2: '1-A — Available for Service',
+    3: '2-A — Occupational Deferment',
+    4: '3-A — Hardship Deferment',
+    5: '4-F — Not Currently Eligible'
+  };
+
+  // Override classification for specific cases
+  let classification = classMap[effectiveTier];
+  if (fitness === 'poor') classification = '4-F — Medically Unfit';
+  if (military === 'current') classification = '1-C — Currently Serving';
+  if (dependents >= 3 && effectiveTier >= 3) classification = '3-A — Hardship Deferment';
+
+  // Override assignment for currently serving
+  let assignment = occData.assignment;
+  if (military === 'current') assignment = 'Already Active Duty';
+
+  // ── Store for sharing ──
+  window.lastResult = {
+    draftNumber: draftNumber.toLocaleString(),
+    totalPool: totalPool.toLocaleString(),
+    tier: tierLabels[effectiveTier],
+    assignment: assignment,
+    occupation: occupation,
+    age: age,
+    gender: gender,
+    classification: classification
+  };
+
+  // ── Populate DOM ──
+  document.getElementById('draftNumber').textContent = '#' + draftNumber.toLocaleString();
+  document.getElementById('draftTotal').textContent = 'out of ' + totalPool.toLocaleString() + ' registered';
+  document.getElementById('resAge').textContent = ageLabel;
+  document.getElementById('resTier').textContent = tierLabels[effectiveTier];
+  document.getElementById('resAssignment').textContent = assignment;
+  document.getElementById('resOdds').textContent = oddsMap[effectiveTier];
+  document.getElementById('resFitness').textContent = fitLabel;
+  document.getElementById('resDependents').textContent = depLabel;
+  document.getElementById('classBadge').textContent = classification;
+  document.getElementById('resFlavour').textContent = '"' + occData.flavour + '"';
+  document.getElementById('dateStamp').textContent = new Date().toLocaleDateString('en-US', { year:'numeric', month:'short', day:'numeric' }).toUpperCase();
+  document.getElementById('stampText').textContent = stampTexts[Math.floor(Math.random() * stampTexts.length)];
+
+  // Show
+  document.getElementById('loadingSection').style.display = 'none';
+  document.getElementById('resultSection').style.display = 'block';
+  document.getElementById('resultSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+/* ── RESET ── */
+function resetForm() {
+  document.getElementById('resultSection').style.display = 'none';
+  document.getElementById('formSection').style.display = 'block';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+/* ── SHARE HELPERS ── */
+function getShareText() {
+  if (!window.lastResult) return '';
+  const r = window.lastResult;
+  return `I'd be #${r.draftNumber} in the US Military Draft 🎖️\n\n${r.classification}\nAssignment: ${r.assignment}\n\nFind yours 👇 vt.co/draft`;
+}
+
+function shareX() {
+  const text = encodeURIComponent(getShareText());
+  window.open(`https://twitter.com/intent/tweet?text=${text}`, '_blank', 'width=550,height=450');
+}
+
+function shareFB() {
+  const url = encodeURIComponent('https://vt.co/draft');
+  window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank', 'width=550,height=450');
+}
+
+function copyResult() {
+  navigator.clipboard.writeText(getShareText()).then(() => showToast('Copied to clipboard!'));
+}
+
+/* ── IMAGE CAPTURE ── */
+async function captureCard() {
+  const card = document.getElementById('resultCard');
+  const canvas = await html2canvas(card, {
+    backgroundColor: '#2a331e',
+    scale: 2,
+    useCORS: true,
+    logging: false
+  });
+  return canvas;
+}
+
+async function saveImage() {
+  try {
+    showToast('Generating image…');
+    const canvas = await captureCard();
+    const link = document.createElement('a');
+    link.download = 'my-draft-position.png';
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+    showToast('Image saved!');
+  } catch (e) {
+    showToast('Could not save image — try screenshot instead');
+  }
+}
+
+async function shareIG() {
+  try {
+    showToast('Preparing image for sharing…');
+    const canvas = await captureCard();
+    canvas.toBlob(async (blob) => {
+      if (navigator.canShare && navigator.canShare({ files: [new File([blob], 'draft.png', { type: 'image/png' })] })) {
+        try {
+          await navigator.share({
+            files: [new File([blob], 'my-draft-position.png', { type: 'image/png' })],
+            title: 'My US Military Draft Position',
+            text: getShareText()
+          });
+        } catch (err) {
+          // User cancelled or share failed — fallback to download
+          fallbackDownload(canvas);
+        }
+      } else {
+        // Desktop or unsupported — download instead
+        fallbackDownload(canvas);
+        showToast('Image saved — upload to your Instagram Story!');
+      }
+    }, 'image/png');
+  } catch (e) {
+    showToast('Could not generate image — try screenshot instead');
+  }
+}
+
+function fallbackDownload(canvas) {
+  const link = document.createElement('a');
+  link.download = 'my-draft-position.png';
+  link.href = canvas.toDataURL('image/png');
+  link.click();
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "name": "us-draft-position-tool",
+  "version": "1.0.0",
+  "description": "Where Would You Be In The US Military Draft - interactive tool",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
